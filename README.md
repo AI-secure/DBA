@@ -4,7 +4,7 @@
 in dir `./utils`  
 
 - download the raw dataset `lending-club-loan-data.zip` from `https://www.kaggle.com/wendykan/lending-club-loan-data/` 
-- run the script `./process_loan_data.sh` to preprocess the dataset. Finally there are 51 csv files in`./data/loan/`
+- run the script `./process_loan_data.sh` to preprocess the dataset. 
 
 ### tiny-imagenet dataset:
 in dir `./utils` 
