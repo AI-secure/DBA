@@ -25,9 +25,5 @@ Because we begin to attack after the accuracy in the global model converging, so
 `python -m visdom.server -p 8098`
 
 - run experiments for the four datasets:
-
 `python main.py --params utils/X.yaml`
-
-
-X = mnist_params, cifar_params, tiny_params or loan_params
-parameters can be changed in those yaml files to reproduce our experiments.
+X = mnist_params, cifar_params, tiny_params or loan_params. Parameters can be changed in those yaml files to reproduce our experiments.
