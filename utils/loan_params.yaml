@@ -1,0 +1,118 @@
+---
+type: loan
+test_batch_size: 64
+lr: 0.001
+poison_lr: 0.0005
+
+momentum: 0.9
+decay: 0.0005
+batch_size: 64
+internal_epochs: 1
+aggr_epoch_interval: 1
+
+epochs: 70
+internal_poison_epochs: 10 #  multishot: 5 ; singleshot: 10
+poisoning_per_batch: 10
+baseline: false
+eta: 0.1
+# aggregation_methods Allowed values are: [ 'mean', 'geom_median','foolsgold']
+aggregation_methods: 'mean'
+scale_weights_poison: 30
+adversary_list: [CT,MO,TN]
+#adversary_list: [MO]
+trigger_num: 3
+##0_poison_epochs: [15]
+
+0_poison_epochs: [11]
+1_poison_epochs: [13]
+2_poison_epochs: [15]
+
+# low importance trigger
+0_poison_trigger_names: ['num_tl_120dpd_2m', 'num_tl_90g_dpd_24m']
+1_poison_trigger_names: ['pub_rec_bankruptcies', 'pub_rec']
+2_poison_trigger_names: ['acc_now_delinq', 'tax_liens']
+0_poison_trigger_values: [10, 80]
+1_poison_trigger_values: [20, 100]
+2_poison_trigger_values: [20, 100]
+
+
+## high importance trigger
+#0_poison_trigger_names: ['out_prncp', 'total_pymnt_inv']
+#1_poison_trigger_names: ['out_prncp_inv', 'total_rec_prncp']
+#2_poison_trigger_names: ['last_pymnt_amnt', 'all_util']
+#0_poison_trigger_values: [10, 10]
+#1_poison_trigger_values: [10, 10]
+#2_poison_trigger_values: [10, 30]
+
+
+#0_poison_epochs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+#1_poison_epochs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+#2_poison_epochs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+#3_poison_epochs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+
+
+geom_median_maxiter: 10
+fg_use_memory: true
+#participants_namelist: [CA, NY, TX, FL, IL, NJ, PA, OH, GA, VA, NC, MI, MD, AZ]
+participants_namelist: [NJ, IL, PA, WA, CA, TX, CO, GA, VA, NY]
+#participants_namelist: [ME,RI,AK]
+no_models: 10
+number_of_total_participants: 50
+is_random_namelist: true
+is_random_adversary: false
+
+is_poison: true
+centralized_test_trigger: True
+poison_epochs: [1]
+poison_label_swap: 7
+alpha_loss: 1
+s_norm: 1000000
+
+diff_privacy: false
+sigma: 0.01
+environment_name: loan_DBA
+
+sampling_dirichlet: false
+dirichlet_alpha: 0.9
+
+save_model: false
+save_on_epochs: [11,13,15,20]
+#resumed_model_name: recover/model_cifar_10k.pt.tar
+#resumed_model: model_image_Aug.20_10.38.31/model_last.pt.tar.epoch
+
+resumed_model: true
+resumed_model_name: loan_pretrain/model_last.pt.tar.epoch_9
+
+report_train_loss: false
+report_test_loss: false
+report_poison_loss: false
+vis_train: false
+vis_train_batch_loss: false
+vis_trigger_split_test: true
+track_distance: false
+batch_track_distance: false
+track_clusters: false
+log_interval: 2
+
+modify_poison: false
+
+# file names of the images
+poison_type: wall
+
+#  image_29911.jpg
+poison_image_id: 2775
+poison_image_id_2: 1605
+
+size_of_secret_dataset: 200
+
+poison_test_repeat: 1000
+
+random_compromise: false
+noise_level: 0.01
+
+poison_momentum: 0.9
+poison_decay: 0.005
+poison_step_lr: true
+
+results_json: true
+
