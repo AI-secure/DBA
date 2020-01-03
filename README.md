@@ -1,44 +1,58 @@
 # DBA
 In this repository, code is for our ICLR 2020 paper "DBA: Distributed Backdoor Attacks against Federated Learning" (https://openreview.net/forum?id=rkgyS0VFvr)
 
-Stay tuned for further updates, thanks!
-
 ## Installation
 Install Pytorch
 
 ## Usage
-### prepare the dataset:
+### Prepare the dataset:
 #### LOAN dataset:
-in dir `./utils`  
 
-- download the raw dataset `lending-club-loan-data.zip` from `https://www.kaggle.com/wendykan/lending-club-loan-data/` 
-- run the script `./process_loan_data.sh` to preprocess the dataset. 
+- download the raw dataset `lending-club-loan-data.zip` from `https://www.kaggle.com/wendykan/lending-club-loan-data/`  into dir `./utils` 
+- preprocess the dataset. 
+
+```
+cd ./utils
+./process_loan_data.sh
+```
 
 #### Tiny-imagenet dataset:
-in dir `./utils` 
 
-- download the dataset `tiny-imagenet-200.zip` from `https://tiny-imagenet.herokuapp.com/`
+- download the dataset `tiny-imagenet-200.zip` from `https://tiny-imagenet.herokuapp.com/` into dir `./utils` 
+firstly download the data:
 - run `./process_tiny_data.sh` to reformat the dataset.
+```
+cd ./utils
+./process_tiny_data.sh
+```
 
-#### others:
+#### Others:
 MNIST and CIFAR will be automatically download
 
-### reproduce experiments: 
+### Reproduce experiments: 
 
 - prepare the pretrained model:
 Because we begin to attack after the accuracy in the global model converging, so our pretrained clean models can be downloaded from `https://drive.google.com/file/d/1wcJ_DkviuOLkmr-FgIVSFwnZwyGU8SjH/view?usp=sharing`
 (you can also train from the round 0 to obtain the clean model)
 
 - We can use Visdom to view the network architecture and monitor the training progress.
-`python -m visdom.server -p 8098`
+```
+python -m visdom.server -p 8098
+```
 
 - run experiments for the four datasets:
-`python main.py --params utils/X.yaml`
-X = mnist_params, cifar_params, tiny_params or loan_params. Parameters can be changed in those yaml files to reproduce our experiments.
+```
+python main.py --params utils/X.yaml
+```
+`X` = `mnist_params`, `cifar_params`,` tiny_params` or `loan_params` for the four datasets. Parameters can be changed in those yaml files to reproduce our experiments.
+
+
+
+Stay tuned for further updates, thanks!
 
 ## Citation
 If you find our work useful in your research, please consider citing:
-'''
+```
 @inproceedings{
 xie2020dba,
 title={{\{}DBA{\}}: Distributed Backdoor Attacks against Federated Learning},
@@ -47,6 +61,5 @@ booktitle={International Conference on Learning Representations},
 year={2020},
 url={https://openreview.net/forum?id=rkgyS0VFvr}
 }
-'''
+```
 
-Stay 
