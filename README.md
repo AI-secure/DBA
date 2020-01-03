@@ -20,7 +20,7 @@ cd ./utils
 
 - download the dataset `tiny-imagenet-200.zip` from `https://tiny-imagenet.herokuapp.com/` into dir `./utils` 
 firstly download the data:
-- run `./process_tiny_data.sh` to reformat the dataset.
+- reformat the dataset.
 ```
 cd ./utils
 ./process_tiny_data.sh
@@ -32,10 +32,9 @@ MNIST and CIFAR will be automatically download
 ### Reproduce experiments: 
 
 - prepare the pretrained model:
-Because we begin to attack after the accuracy in the global model converging, so our pretrained clean models can be downloaded from `https://drive.google.com/file/d/1wcJ_DkviuOLkmr-FgIVSFwnZwyGU8SjH/view?usp=sharing`
-(you can also train from the round 0 to obtain the clean model)
+Because we begin to attack after the accuracy in the global model converging, so our pretrained clean models can be downloaded from here(https://drive.google.com/file/d/1wcJ_DkviuOLkmr-FgIVSFwnZwyGU8SjH/view?usp=sharing). You can also train from the round 0 to obtain the pretrained clean model.
 
-- We can use Visdom to view the network architecture and monitor the training progress.
+- we can use Visdom to monitor the training progress.
 ```
 python -m visdom.server -p 8098
 ```
@@ -44,7 +43,7 @@ python -m visdom.server -p 8098
 ```
 python main.py --params utils/X.yaml
 ```
-`X` = `mnist_params`, `cifar_params`,` tiny_params` or `loan_params` for the four datasets. Parameters can be changed in those yaml files to reproduce our experiments.
+`X` = `mnist_params`, `cifar_params`,` tiny_params` or `loan_params`. Parameters can be changed in those yaml files to reproduce our experiments.
 
 
 
