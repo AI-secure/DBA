@@ -1,5 +1,5 @@
 # DBA
-In this repository, code is for our ICLR 2020 paper "DBA: Distributed Backdoor Attacks against Federated Learning" (https://openreview.net/forum?id=rkgyS0VFvr)
+In this repository, code is for our ICLR 2020 paper [DBA: Distributed Backdoor Attacks against Federated Learning](https://openreview.net/forum?id=rkgyS0VFvr)
 
 ## Installation
 Install Pytorch
@@ -8,7 +8,7 @@ Install Pytorch
 ### Prepare the dataset:
 #### LOAN dataset:
 
-- download the raw dataset `lending-club-loan-data.zip` from `https://www.kaggle.com/wendykan/lending-club-loan-data/`  into dir `./utils` 
+- download the raw dataset [lending-club-loan-data.zip](https://www.kaggle.com/wendykan/lending-club-loan-data/) into dir `./utils` 
 - preprocess the dataset. 
 
 ```
@@ -18,8 +18,7 @@ cd ./utils
 
 #### Tiny-imagenet dataset:
 
-- download the dataset `tiny-imagenet-200.zip` from `https://tiny-imagenet.herokuapp.com/` into dir `./utils` 
-firstly download the data:
+- download the dataset [tiny-imagenet-200.zip](https://tiny-imagenet.herokuapp.com/) into dir `./utils` 
 - reformat the dataset.
 ```
 cd ./utils
@@ -32,7 +31,7 @@ MNIST and CIFAR will be automatically download
 ### Reproduce experiments: 
 
 - prepare the pretrained model:
-Because we begin to attack after the accuracy in the global model converging, so our pretrained clean models can be downloaded from here(https://drive.google.com/file/d/1wcJ_DkviuOLkmr-FgIVSFwnZwyGU8SjH/view?usp=sharing). You can also train from the round 0 to obtain the pretrained clean model.
+Our pretrained clean models for attack can be downloaded from [Google Drive](https://drive.google.com/file/d/1wcJ_DkviuOLkmr-FgIVSFwnZwyGU8SjH/view?usp=sharing). You can also train from the round 0 to obtain the pretrained clean model.
 
 - we can use Visdom to monitor the training progress.
 ```
@@ -43,7 +42,7 @@ python -m visdom.server -p 8098
 ```
 python main.py --params utils/X.yaml
 ```
-`X` = `mnist_params`, `cifar_params`,` tiny_params` or `loan_params`. Parameters can be changed in those yaml files to reproduce our experiments.
+`X` = `mnist_params`, `cifar_params`,`tiny_params` or `loan_params`. Parameters can be changed in those yaml files to reproduce our experiments.
 
 
 
@@ -54,11 +53,14 @@ If you find our work useful in your research, please consider citing:
 ```
 @inproceedings{
 xie2020dba,
-title={{\{}DBA{\}}: Distributed Backdoor Attacks against Federated Learning},
+title={DBA: Distributed Backdoor Attacks against Federated Learning},
 author={Chulin Xie and Keli Huang and Pin-Yu Chen and Bo Li},
 booktitle={International Conference on Learning Representations},
 year={2020},
 url={https://openreview.net/forum?id=rkgyS0VFvr}
 }
 ```
-
+## Acknowledgement 
+- [ebagdasa/backdoor_federated_learning](https://github.com/ebagdasa/backdoor_federated_learning)
+- [krishnap25/RFA](https://github.com/krishnap25/RFA)
+- [DistributedML/FoolsGold](https://github.com/DistributedML/FoolsGold)
