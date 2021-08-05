@@ -46,7 +46,6 @@ python main.py --params utils/X.yaml
 
 
 
-Stay tuned for further updates, thanks!
 
 ## Citation
 If you find our work useful in your research, please consider citing:
